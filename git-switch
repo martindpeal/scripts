@@ -1,0 +1,16 @@
+#!/bin/bash
+git fetch
+git switch -c $1
+
+echo "Would you like to create the remote branch? (y / n)"
+read -r push
+if [ "$push" = "y" ]
+then
+  echo "Creating remote branch"
+  git push -u origin $1
+else
+  echo "Skip creating remote branch"
+fi
+
+# set upstream to new branch
+git branch -u origin/$1 $1

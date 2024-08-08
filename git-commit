@@ -1,0 +1,15 @@
+#!/bin/bash
+git pull
+echo 'Enter commit message:'
+read -r commit
+echo "Commiting $commit"
+git commit -a -m "$commit"
+echo "Would you like to push? (y / n)"
+read -r push
+if [ "$push" = "y" ]
+then
+  echo "Pushing commit(s)"
+  git push
+else
+  echo "Skip push"
+fi
